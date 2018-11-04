@@ -1,0 +1,17 @@
+<nav id="navigation">
+  <ul>
+    <li *ngFor="let item of paths" [class.left]="item.key == 'overview'" [class.right]="item.key == 'login' || item.key == 'account'">
+      <a id="{{item.key}}" routerLink="/{{item.key}}" [class.active]="item.key == path">{{item.value}}</a>
+    </li>
+  </ul>
+</nav>
+<form (ngSubmit)="onSubmit()" #userForm="ngForm">
+  <label for="username">Username:</label>
+  <input type="text" id="username" placeholder="Username" required [(ngModel)]="user.username" #name="ngModel" [ngModelOptions]="{standalone:true}">
+  <br>
+  <label for="password">Password:</label>
+  <input type="password" id="password" placeholder="Password" required [(ngModel)]="user.password" #name="ngModel" [ngModelOptions]="{standalone:true}">
+  <br>
+  <button type="submit">Login</button>
+  <button type="button" (click)="registerNewUser()">Registireren</button>
+</form>

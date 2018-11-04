@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>EvaluationPortal</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script src="https://code.jquery.com/jquery-latest.js"></script>
+  <script type="text/javascript">
+    function changeActive(string) {
+      $('.active').removeClass('active');
+      $('#'+string).addClass('active');
+    }
+
+    function onload() {
+      var width = $('#site').width();
+      $('#footer').width(width);
+    }
+  </script>
+</head>
+<body onload="onload();">
+  <app-root></app-root>
+</body>
+</html>

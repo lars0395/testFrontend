@@ -1,0 +1,19 @@
+<nav id="navigation">
+  <ul>
+    <li *ngFor="let item of paths" [class.left]="item.key == 'overview'" [class.right]="item.key == 'login' || item.key == 'account'">
+      <a id="{{item.key}}" routerLink="/{{item.key}}" [class.active]="item.key == path">{{item.value}}</a>
+    </li>
+  </ul>
+</nav>
+<div>
+  <table>
+    <tbody>
+      <tr *ngFor="let point of evaluation.evaluationPoints">
+        <td>{{ point.description }}</td>
+        <td><input type="checkbox" id="{{ point.id }}" title="{{ point.name }}" value="{{ point.value }}" [(ngModel)]="point.value"></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <input type="button" id="sendEvaluation" (click)="sendEvaluation(evaluation)" value="Bewertung abgeben">
+</div>

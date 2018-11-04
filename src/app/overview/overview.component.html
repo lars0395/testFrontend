@@ -1,0 +1,9 @@
+<nav id="navigation">
+  <ul>
+    <li *ngFor="let item of paths" [class.left]="item.key == 'overview'" [class.right]="item.key == 'login' || item.key == 'account'">
+      <a id="{{item.key}}" routerLink="/{{item.key}}" [class.active]="item.key == path">{{item.value}}</a>
+    </li>
+  </ul>
+</nav>
+Hier könnte Ihre Werbung stehen!
+
