@@ -16,12 +16,14 @@ export class UserService {
   }
 
   login(user: User): string {
-    user.password = <string>Md5.hashStr(user.password);
-    this.http.post('http://localhost:8080/login', JSON.stringify(user)).subscribe(
+    const tempUser: User = new User(user.username, <string>Md5.hashStr(user.password), user.role, user.email);
+    this.http.post('http://localhost:8080/login', JSON.stringify(tempUser)).subscribe(
       data => {
         console.log(data);
         if (data instanceof User) {
-          this.user = data;
+          this.user.email = data.email;
+          this.user.role = data.role;
+          this.user.session = data.role;
         }
         this.router.navigateByUrl('/account');
         return 'Login erfolgreich';
