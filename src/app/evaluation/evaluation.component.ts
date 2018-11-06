@@ -4,6 +4,7 @@ import {EvaluationPoint} from './evaluationPoint';
 import {Path} from '../path';
 import {PathService} from '../path.service';
 import {EvaluationPointService} from '../evaluation-point.service';
+import {EvaluationService} from '../evaluation.service';
 
 @Component({
   selector: 'app-evaluation',
@@ -16,17 +17,19 @@ export class EvaluationComponent implements OnInit {
   path: string;
   paths: Path[];
 
-  constructor(private pathService: PathService, private evaluationPointService: EvaluationPointService) {
+  constructor(private pathService: PathService, private evaluationPointService: EvaluationPointService,
+              private evaluationService: EvaluationService) {
   }
 
   ngOnInit() {
     this.evaluation = new Evaluation();
-    this.evaluation.evaluationPoints = this.evaluationPointService.getEvaluationPoints();
+    this.evaluation.evaluationPointList = this.evaluationPointService.getEvaluationPoints();
     this.path = 'evaluation';
     this.paths = this.pathService.getPaths();
   }
 
   sendEvaluation(evaluation: Evaluation) {
     console.log(evaluation);
+    this.evaluationService.saveEvaluation(evaluation);
   }
 }

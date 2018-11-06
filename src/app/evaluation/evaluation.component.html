@@ -24,7 +24,7 @@
           <td>Geburtstag</td>
           <td><input type="date" id="birthDay" title="birthDay" min="1918-01-01" max="2018-01-01" [(ngModel)]="evaluation.birthDay"></td>
       </tr>
-      <tr *ngFor="let point of evaluation.evaluationPoints">
+      <tr *ngFor="let point of evaluation.evaluationPointList">
         <td>{{ point.description }}</td>
         <td><input type="checkbox" id="{{ point.id }}" title="{{ point.name }}" value="{{ point.value }}" [(ngModel)]="point.value"></td>
       </tr>

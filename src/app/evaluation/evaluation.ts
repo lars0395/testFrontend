@@ -5,13 +5,13 @@ export class Evaluation {
   lastName: string;
   city: string;
   birthDay: string;
-  evaluationPoints: Array<EvaluationPoint>;
+  evaluationPointList: Array<EvaluationPoint>;
 
   constructor() {
-    this.evaluationPoints = [];
+    this.evaluationPointList = [];
   }
 
   addEvaluationPoint(point: EvaluationPoint) {
-    this.evaluationPoints.push(point);
+    this.evaluationPointList.push(point);
   }
 }
